@@ -9,6 +9,7 @@ import sys
 # Complete the isBalanced function below.
 def isBalanced(s):
     opening = ['(', '[', '{']
+    pair = {'(':')', '[':']', '{': '}'}
     nonclose = []
     for i in s:
         if i in opening:
@@ -17,7 +18,7 @@ def isBalanced(s):
             if len(nonclose) == 0:
                 return 'NO'
             cur = nonclose.pop()
-            if not ((cur == '(' and i == ')') or (cur == '[' and i ==']') or (cur == '{' and i == '}')):
+            if pair[cur] != i:
                 return 'NO'
     if nonclose:
         return 'NO'

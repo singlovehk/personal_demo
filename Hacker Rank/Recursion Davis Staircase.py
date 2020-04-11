@@ -8,10 +8,14 @@ import sys
 
 # Complete the stepPerms function below.
 def stepPerms(n):
-    diction = {1:1, 2:2, 3:4}
+    if n <= 3:
+        return 2 ** (n-1)
+    s1 = 1
+    s2 = 2
+    s3 = 4
     for i in range(4, n+1):
-        diction[i] = diction[i-3] + diction[i-2] + diction[i-1]
-    return diction[n] % (10 ** 10 + 7)
+        s1, s2, s3 = s2, s3, s1+s2+s3 % (10**10 + 7)
+    return s3
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -25,4 +29,3 @@ if __name__ == '__main__':
 
         fptr.write(str(res) + '\n')
 
-    fptr.close()

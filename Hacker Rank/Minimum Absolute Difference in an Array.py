@@ -9,10 +9,10 @@ import sys
 # Complete the minimumAbsoluteDifference function below.
 def minimumAbsoluteDifference(arr):
     arr = sorted(arr, key=abs)
-    ans = []
+    ans = 10 ** 9
     for i in range(len(arr) - 1):
-        ans.append(abs(arr[i] - arr[i+1]))
-    return min(ans)
+        ans = min(ans, abs(arr[i] - arr[i+1]))
+    return ans
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

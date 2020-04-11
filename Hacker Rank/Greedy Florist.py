@@ -9,10 +9,9 @@ import sys
 # Complete the getMinimumCost function below.
 def getMinimumCost(k, c):
     c.sort(reverse=True)
-    flowers = len(c)
     loop = 0
     cost = 0
-    while loop * k <=flowers:
+    while loop * k <=len(c):
         cost += (loop+1) * sum(c[loop*k:(loop+1)*(k)])
         loop += 1
     return cost

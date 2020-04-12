@@ -4,15 +4,9 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        cost = float('inf')
         profit = 0
-        prev = -1
-        for cur in prices:
-            if prev> cur:
-                profit += prev - cost
-                cost = cur
-            else :
-                cost = min(cur, cost) 
+        prev= prices[0]
+        for cur in prices[1:]:
+            profit += max(cur - prev, 0)
             prev = cur
-        profit += max(cur - cost, 0)
         return profit

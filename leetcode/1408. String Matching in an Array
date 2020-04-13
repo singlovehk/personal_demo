@@ -1,0 +1,14 @@
+class Solution(object):
+    def stringMatching(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        ans = []
+        for i in words:
+            for j in words:
+                if i in j and i != j:
+                    ans.append(i)
+                    break
+        return ans
+                
